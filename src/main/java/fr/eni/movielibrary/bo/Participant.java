@@ -79,8 +79,7 @@ public class Participant {
 
 	@Override
 	public String toString() {
-		return "Participant [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName
-				+ ", listMoviesAsDirector=" + listMoviesAsDirector + ", listMoviesAsActor=" + listMoviesAsActor + "]";
+		return lastName + " " +  firstName + " [id=" + id + "]";
 	}
 	
 	

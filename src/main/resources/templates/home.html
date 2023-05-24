@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Bienvenue sur Filmothèque</h1>
+
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+<div class="cards">
+
+	
+	<div class="card" th:each="movie: ${movies}">
+	
+		<a th:href="@{/movie/{id}(id=${movie.id})}">
+				
+			<div class="card-title">
+			   <span th:text="${movie.title}"/></span>
+			</div>
+			
+			<div>
+			  	<span th:text="${movie.year}"/></span>
+			</div>
+			
+			<div th:each="genre: ${movie.genre}">
+			  	<span th:text="${genre.label}"/></span>
+			</div>
+			
+		</a>
+		
+	</div><!--/* card */-->
+
+</div><!--/* cards */-->
+
+
+</th:block>
+
+</body>
+</html>

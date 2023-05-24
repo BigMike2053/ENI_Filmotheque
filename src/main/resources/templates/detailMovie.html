@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Detail movie</h1>
+
+	<div>
+	
+		<div class="card-title">
+		   <span th:text="${movie.title}"/></span>
+		</div>
+		
+		<strong>Année de sortie : </strong>
+		<div>
+		  	<span th:text="${movie.year}"/></span>
+		</div>
+		
+		<strong>Durée : </strong>
+		<div>
+		  	<span th:text="${movie.duration}"/></span>
+		</div>
+		
+		<strong>Genre : </strong>
+		<div th:each="genre: ${movie.genre}">
+		  	<span th:text="${genre.label}"/></span>
+		</div>
+		
+		<strong>Résumé : </strong>	
+		<div>
+		  	<span th:text="${movie.synopsis}"/></span>
+		</div>
+		
+		<strong>Directeur : </strong>
+		<div th:each="director: ${movie.director}">
+		
+		  	<span th:text="${director.lastName}"/></span>
+		   	<span th:text="${director.firstName}"/></span>
+		   	
+		</div>
+		
+		<strong>Acteurs : </strong>
+		<div th:each="actor: ${movie.listActors}">
+		
+		  	<span th:text="${actor.lastName}"/></span>
+		    <span th:text="${actor.firstName}"/></span>
+		  	
+		</div>
+		
+	</div><!--/* card */-->
+
+</body>
+</html>

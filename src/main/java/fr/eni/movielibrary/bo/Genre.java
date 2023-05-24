@@ -50,7 +50,7 @@ public class Genre {
 
 	@Override
 	public String toString() {
-		return "Genre [id=" + id + ", label=" + label + ", listMovies=" + listMovies + "]";
+		return "Genre : " + label + "[id=" + id + "]";
 	}
 
 }
