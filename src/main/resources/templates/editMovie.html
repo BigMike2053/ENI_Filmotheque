@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Modification d'un film</h1>
+
+	<form method="post" th:object="${formMovie}">
+	
+		<div>
+			<label>Titre : <label>>
+			<input type="text" th:field="${movie.title}"/>
+		</div>
+		
+		<div>
+			<label>Url de l'image : <label>>
+			<input type="text" th:field="${movie.image}"/>	
+		</div>
+		
+		<div>
+			<label>Année de sortie : <label>>
+		  	<input type="number" th:field="${movie.year}"/>
+		 </div>
+		
+		<div>
+			<label>Durée : </label>
+		  	<input type="number" th:field="${movie.duration}"/>
+		 </div>
+		
+		<div>
+			<label>Genre : </label>
+		  	<input type="text" th:field="${movie.genre.label}"/>
+		</div>
+		
+		<div>
+			<label>Résumé : </label>	
+		  	<input type="text" th:field="${movie.synopsis}"/>
+		</div>
+		
+		<label>Directeur : </label>
+		<div th:each="director: ${movie.director}">
+		  	<input type="text" th:value="${director.lastName}"/>
+		   	<input type="text" th:value="${director.firstName}"/>
+		</div>
+		
+		<label>Acteurs : </label>
+		<div th:each="actor:${movie.listActors}">
+		  	<input type="text" th:value="${actor.lastName}"/>
+		    <input type="text" th:value="${actor.firstName}"/>
+		</div>
+				
+		<a class="card-link" th:href="@{/movie/{id}(id=${movie.id})}">Retour</a>
+		<input class="card-link" type="submit" value="Valider la modification" />
+		
+	</form>
+
+</body>
+</html>

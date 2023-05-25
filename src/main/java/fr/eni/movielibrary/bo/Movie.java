@@ -12,10 +12,11 @@ public class Movie {
 	private Participant director;
 	private List<Participant> listActors;
 	private Genre genre;
+	private String image;
 	
 	
 	public Movie(long _id, String _title, int _year, int _duration, String _synopsis, Participant _director,
-			List<Participant> _listActors, Genre _genre) {
+			List<Participant> _listActors, Genre _genre, String _image) {
 		this.id = _id;
 		this.title = _title;
 		this.year = _year;
@@ -24,19 +25,19 @@ public class Movie {
 		this.director = _director;
 		this.listActors = _listActors;
 		this.genre = _genre;
+		this.image = _image;
 	}
 	
 	
-	public Movie(long _id, String _title, int _year, int _duration, String _synopsis) {
+	public Movie(long _id, String _title, int _year, int _duration, String _synopsis, String _image) {
 		super();
 		this.id = _id;
 		this.title = _title;
 		this.year = _year;
 		this.duration = _duration;
 		this.synopsis = _synopsis;
+		this.image = _image;
 	}
-
-
 
 
 	public Long getId() {
@@ -116,6 +117,22 @@ public class Movie {
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}
+	
+	
+
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 

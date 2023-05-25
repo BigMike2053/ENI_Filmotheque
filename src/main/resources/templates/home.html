@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<title>Insert title here</title>
 </head>
 <body>
 
 <h1>Bienvenue sur Filmothèque</h1>
 
-<th:block xmlns:th="http://www.thymeleaf.org">
-
 <div class="cards">
 
 	
 	<div class="card" th:each="movie: ${movies}">
-	
-		<a th:href="@{/movie/{id}(id=${movie.id})}">
-				
-			<div class="card-title">
-			   <span th:text="${movie.title}"/></span>
-			</div>
 			
-			<div>
-			  	<span th:text="${movie.year}"/></span>
-			</div>
+		<div class="card-title">
+		   <span th:text="${movie.title}"/></span>
+		</div>
+		
+		<div>
+			<img th:src="${movie.image}" style="height:300px;"/>	
+		</div>
+		
+		<div>
+		  	<span th:text="${movie.year}"/></span>
+		</div>
+		
+		<div class="card-genre" th:each="genre: ${movie.genre}">
+		  	<span th:text="${genre.label}"/></span>
+		</div>
 			
-			<div th:each="genre: ${movie.genre}">
-			  	<span th:text="${genre.label}"/></span>
-			</div>
-			
-		</a>
+		<a class="card-link" th:href="@{/movie/{id}(id=${movie.id})}">Voir le détail du film</a>
+		<a class="card-link" th:href="@{/movie/edit/{id}(id=${movie.id})}">Modifier le film</a>
 		
 	</div><!--/* card */-->
 
 </div><!--/* cards */-->
 
 
-</th:block>
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link th:href="@{/css/style.css}" rel="stylesheet" />
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -14,6 +16,10 @@
 	
 		<div class="card-title">
 		   <span th:text="${movie.title}"/></span>
+		</div>
+		
+		<div class="card-image">
+			<img th:src="${movie.image}"/>	
 		</div>
 		
 		<strong>Année de sortie : </strong>
@@ -51,6 +57,9 @@
 		    <span th:text="${actor.firstName}"/></span>
 		  	
 		</div>
+		
+		<a class="card-link" th:href="@{/}">Retour</a>
+		
 		
 	</div><!--/* card */-->
 
